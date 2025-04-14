@@ -41,10 +41,10 @@ def main():
     encrypted_aes_key = otp_encrypt(aes_key, otp_key)
     print("Encrypted AES key (hex):", encrypted_aes_key.hex())
 
-    # 4. Şifrelenmiş AES anahtarını dosyaya kaydet.
+    # 4. Save the encrypted AES key in a file.
     with open(encrypted_aes_filename, "wb") as f:
         f.write(encrypted_aes_key)
-    print(f"Şifrelenmiş AES anahtarı '{encrypted_aes_filename}' dosyasına kaydedildi.")
+    print(f"Encrypted AES key saved in the file '{encrypted_aes_filename}'.")
 
 if __name__ == "__main__":
     main()

@@ -27,9 +27,9 @@ def main():
     with open(encrypted_aes_filename, 'rb') as f:
         encrypted_aes_key = f.read()
     
-    # 3. Decncrypt AES key by using OTP key.
+    # 3. Decrypted AES key by using OTP key.
     decrypted_aes_key = otp_decrypt(encrypted_aes_key, otp_key)
-    print("Deşifrelenmiş AES anahtarı (hex):", decrypted_aes_key.hex())
+    print("Decrypted AES key (hex):", decrypted_aes_key.hex())
 
 if __name__ == "__main__":
     main()
