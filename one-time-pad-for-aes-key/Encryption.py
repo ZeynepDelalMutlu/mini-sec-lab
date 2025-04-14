@@ -22,7 +22,9 @@ def main():
 
     # 1. Get OTP key.
     try:
-        otp_key = read_otp_key(otp_key_filename, aes_key_length)
+        directory = os.path.dirname(__file__)  # Get the directory of the current file
+        filepath = os.path.join(directory, otp_key_filename)
+        otp_key = read_otp_key(filepath, aes_key_length)
     except Exception as e:
         print("OTP key could not be read:", e)
         return
@@ -42,7 +44,9 @@ def main():
     print("Encrypted AES key (hex):", encrypted_aes_key.hex())
 
     # 4. Save the encrypted AES key in a file.
-    with open(encrypted_aes_filename, "wb") as f:
+    directory = os.path.dirname(__file__)  # Get the directory of the current file
+    filepath = os.path.join(directory, encrypted_aes_filename)
+    with open(filepath, "wb") as f:
         f.write(encrypted_aes_key)
     print(f"Encrypted AES key saved in the file '{encrypted_aes_filename}'.")
 

@@ -1,7 +1,9 @@
 import os
 
 def read_key(filename, required_length=None):
-    with open(filename, 'rb') as f:
+    directory = os.path.dirname(__file__)  # Get the directory of the current file
+    filepath = os.path.join(directory, filename)
+    with open(filepath, 'rb') as f:
         key = f.read()
     if required_length is not None:
         if len(key) < required_length:
@@ -24,7 +26,9 @@ def main():
     otp_key = read_key(otp_key_filename, aes_key_length)
     
     # 2. Get encrypted AES key from the file.
-    with open(encrypted_aes_filename, 'rb') as f:
+    directory = os.path.dirname(__file__)  # Get the directory of the current file
+    filepath = os.path.join(directory, encrypted_aes_filename)
+    with open(filepath, 'rb') as f:
         encrypted_aes_key = f.read()
     
     # 3. Decrypted AES key by using OTP key.

@@ -12,7 +12,9 @@ class OTPKeyGenerator:
         return os.urandom(self.length)
 
     def save_key(self, filename, key):
-        with open(filename, 'wb') as f:
+        directory = os.path.dirname(__file__)  # Get the directory of the current file
+        filepath = os.path.join(directory, filename)
+        with open(filepath, 'wb') as f:
             f.write(key)
         return key
 
