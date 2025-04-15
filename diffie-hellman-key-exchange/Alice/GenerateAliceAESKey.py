@@ -43,5 +43,5 @@ if __name__ == "__main__":
     filepathKey = os.path.join(directory, "aes_key.txt")
     with open(filepathKey, "wb") as f:
         f.write(aes_key)
-        
+
     print("Derived AES 256-bit key (hex):", aes_key.hex())
